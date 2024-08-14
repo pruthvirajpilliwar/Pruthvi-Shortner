@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="align-items-center container mt-3">
+<div class="col-md-10 mx-auto col-lg-5">
+        <form method="post" action="/links" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <h3 class="mb-4 text-primary">Shorten a long URL</h3>
+          <div class="form-floating mb-3">
+            <input type="url" class="form-control" name="url" id="url" placeholder="https://www.example.com" required>
+            <label for="url">Enter long link here</label>
+          </div>
+          <button class="mb-2 w-100 btn btn-lg btn-primary" type="submit">Shorten URL</button>
+          <small class="form-text text-body-secondary">By clicking Shorten URL, you agree to the <a href="/terms-conditions">Terms of Use</a>.</small>
+        </form>
+      </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block main %}
+{% for link in user.shortlinks|reverse %}
+<div class="card my-3">
+  <div class="card-body">
+    <div class="card-title mb-3">
+      <i class="fa-solid fa-link me-2"></i>
+      <a href="{{ link.slug }}" target="_blank"><strong>{{ request.host ~ "/" ~ link.slug }}</strong> </a>
+    </div>
+    <div class="card-subtitle mb-3">
+      <i class="fa-solid fa-diamond-turn-right me-2"></i>
+    <a class="text-body-secondary text-decoration-none" href="{{ link.url }}" target="_blank">{{ link.url }} </a>
+    </div>
+    <div class="mb-2">
+      <i class="fa-solid fa-eye me-2"></i>
+     <span> {{ link.clicks }} </span>
+    </div>
+    <div>
+    </div>
+  </div>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+     <div>
+      <i class="fa-solid fa-calendar me-3"></i>
+      <span>  {{ link.created_at.strftime("%d %b %Y, %I:%M %p") }} </span>
+     </div>
+      <div>
+       <i class="fa-solid fa-trash"></i>
+       </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
